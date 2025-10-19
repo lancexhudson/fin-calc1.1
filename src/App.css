@@ -1,4 +1,10 @@
 /* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Set body background to black */
+}
+
 .App {
   max-width: 800px;
   margin: 0 auto;
