@@ -1,0 +1,260 @@
+/* Global Styles */
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Dark gray-black similar to X.com dark mode */
+  color: #ffffff; /* White text for contrast */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #222222; /* Slightly darker than main background for distinction */
+  z-index: 1000;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333333; /* Subtle gray border */
+}
+
+.title-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  color: #1da1f2; /* X.com blue for title */
+}
+
+.title-stack span {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.title-stack span:first-child {
+  font-weight: bold;
+}
+
+.title-stack:hover span {
+  color: #4fc3f7; /* Lighter blue shade on hover */
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #1da1f2; /* X.com blue */
+}
+
+.hamburger-menu:hover {
+  color: #4fc3f7; /* Lighter blue on hover */
+}
+
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #0f0f0f; /* Matches header */
+  border: 1px solid #333333;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links.active {
+  display: block;
+}
+
+.nav-links a {
+  display: block;
+  padding: 10px 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  background-color: #1da1f2; /* X.com blue background on hover */
+  color: #ffffff;
+}
+
+/* Calculator Sections */
+.calculator-section {
+  margin: 20px 0;
+  background-color: #222222; /* Slightly lighter than main for section distinction */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.calculator-section h2 {
+  margin-bottom: 10px;
+  color: #1da1f2; /* Blue for headers */
+}
+
+/* Input Group */
+.input-group {
+  margin: 10px 0;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #cccccc; /* Light gray for labels */
+}
+
+input[type='number'],
+input[type='text'] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #4b4b4b; /* Darker gray border */
+  border-radius: 4px;
+  background-color: #2d2d2d; /* Dark input background */
+  color: #ffffff;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+input[type='number']:focus,
+input[type='text']:focus {
+  border-color: #1da1f2; /* X.com blue on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(29, 161, 242, 0.5);
+}
+
+/* Buttons */
+button {
+  padding: 8px 16px;
+  margin: 5px 5px 10px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #1da1f2; /* X.com blue */
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #0f8bc0; /* Darker blue shade on hover */
+}
+
+button:disabled {
+  background-color: #4b4b4b;
+  cursor: not-allowed;
+}
+
+/* Results Card */
+.results-card {
+  padding: 15px;
+  border: 1px solid #4b4b4b;
+  border-radius: 4px;
+  background-color: #2d2d2d;
+  margin-left: 20px;
+  color: #ffffff;
+  max-height: 300px; /* Fixed max height to contain content */
+  overflow-y: auto; /* Scroll if content exceeds */
+  flex: 1 1 50%; /* Proportional sizing with inputs */
+  display: flex;
+  flex-direction: column;
+}
+
+.results-card.collapsed {
+  display: none; /* Hide when collapsed */
+}
+
+.results-card .collapse-btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #1da1f2;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.results-card .collapse-btn:hover {
+  color: #4fc3f7;
+}
+
+.results-card table {
+  width: 100%;
+  border-collapse: collapse;
+  flex-grow: 1; /* Allow table to grow within card */
+}
+
+.results-card th,
+.results-card td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.results-card h3 {
+  margin-top: 0;
+  color: #1da1f2;
+}
+
+.results-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results-card li {
+  margin: 5px 0;
+  color: #cccccc;
+}
+
+/* Ensure vertical alignment with inputs */
+.calculator-section div[style*='flex'] {
+  align-items: stretch; /* Stretch items vertically */
+}
+
+@media (max-width: 600px) {
+  .results-card {
+    margin-left: 0;
+    margin-top: 10px;
+    flex: 1 1 100%; /* Full width on mobile */
+  }
+}
+
+/* Loading Spinner */
+.loading {
+  margin-left: 10px;
+  font-size: 1.2em;
+  color: #1da1f2; /* X.com blue for spinner */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .calculator-section {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .calculator-section div[style*='flex'] {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .results-card {
+    margin-left: 0;
+  }
+
+  .title-stack span {
+    font-size: 1.2em;
+  }
+
+  .nav-links {
+    top: 50px;
+    right: 10px;
+  }
+}
