@@ -1,2 +1,9 @@
 .env
 .env
+
+# React / CRA build output
+build/
+.cache/
+node_modules/
+.env
+.DS_Store
