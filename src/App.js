@@ -3,8 +3,8 @@ import './App.css';
 import SavingsRateCalculator from './components/SavingsRateCalculator';
 import RetirementCalculator from './components/RetirementCalculator';
 import CompoundGrowthCalculator from './components/CompoundGrowthCalculator';
-import InflationCalculator from './components/InflationCalculator';
-import TaxSavingsCalculator from './components/TaxSavingsCalculator';
+// import InflationCalculator from './components/InflationCalculator';
+// import TaxSavingsCalculator from './components/TaxSavingsCalculator';
 import HamburgerMenu from './components/HamburgerMenu';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,8 +15,8 @@ function App() {
     { id: 'savings-rate', label: 'Savings Rate Calculator' },
     { id: 'compound-growth', label: 'Compound Growth Calculator' },
     { id: 'retirement', label: 'Retirement Calculator' },
-    { id: 'inflation', label: 'Inflation Calculator' },
-    { id: 'tax-savings', label: 'Tax Savings Calculator' },
+    // { id: 'inflation', label: 'Inflation Calculator' },
+    // { id: 'tax-savings', label: 'Tax Savings Calculator' },
   ];
 
   const scrollToTop = () => {
@@ -31,8 +31,7 @@ function App() {
           onClick={scrollToTop}
           aria-label="Scroll to top"
         >
-          <span>Financial</span>
-          <span>Wellness Calculator</span>
+          <span>Financial Wellness Calculator</span>
         </div>
         <HamburgerMenu sections={sections} />
       </header>
@@ -50,12 +49,12 @@ function App() {
         <section id="retirement" className="calculator-section">
           <RetirementCalculator />
         </section>
-        <section id="inflation" className="calculator-section">
+        {/* <section id="inflation" className="calculator-section">
           <InflationCalculator />
-        </section>
-        <section id="tax-savings" className="calculator-section">
+        </section> */}
+        {/* <section id="tax-savings" className="calculator-section">
           <TaxSavingsCalculator />
-        </section>
+        </section> */}
       </main>
       <ToastContainer position="top-right" autoClose={5000} />
     </div>
